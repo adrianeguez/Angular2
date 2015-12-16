@@ -1,80 +1,53 @@
 import {Component} from 'angular2/core';
 
-interface Heroe {
-    id: number;
-    name: string;
+import {Hero} from './hero';
+
+import {ClickMeComponent}    from './click-me.component';
+
+import {LoopbackComponent}   from './loop-back.component';
+
+import {KeyUpComponent_v1,
+KeyUpComponent_v2,
+KeyUpComponent_v3,
+KeyUpComponent_v4}   from './keyup.component';
+
+import {LittleTourComponent} from './little-tour.component';
+
+
+@Component({
+  selector: 'my-app',
+  templateUrl: 'app/app.component.html',
+  directives: [
+    ClickMeComponent,
+    LoopbackComponent,
+    KeyUpComponent_v1, KeyUpComponent_v2, KeyUpComponent_v3, KeyUpComponent_v4,
+    LittleTourComponent
+  ]
+
+})
+
+
+export class AppComponent {
+  title: string;
+  constructor() {
+    this.title = 'Tour of Heroes';
+  }
+  heroes = [
+    new Hero(1, 'Windstorm'),
+    new Hero(13, 'Bombasto'),
+    new Hero(15, 'Magneta'),
+    new Hero(20, 'Tornado')
+  ];
+  myHero = this.heroes[0];
 }
 
 @Component({
-    selector: 'my-app',
-    template: `
-    <h1>{{title}}</h1>
-            <div *ngIf="selectedHero">
-  <h2>{{selectedHero.name}} details!</h2>
-  <div><label>id: </label>{{selectedHero.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-  </div>
-</div>
-
-
-
-<h2>My Heroes</h2>
-<ul class="heroes">
-	<li *ngFor="#hero of heroes" [class.selected]="hero === selectedHero" >
-		<span class="badge" (click)="onSelect(hero)">{{hero.id}}</span> {{hero.name}}
-	</li>
-</ul>
-            `
-     ,styles:[`
-                .heroes {list-style-type: none; margin-left: 1em; padding: 0; width: 10em;}
-                .heroes li { cursor: pointer; position: relative; left: 0; transition: all 0.2s ease; }
-                .heroes li:hover {color: #369; background-color: #EEE; left: .2em;}
-                .heroes .badge {
-                    font-size: small;
-                    color: white;
-                    padding: 0.1em 0.7em;
-                    background-color: #369;
-                    line-height: 1em;
-                    position: relative;
-                    left: -1px;
-                    top: -1px;
-                }
-                .selected { background-color: #EEE; color: #369; }
-                `]
+  selector: 'my-app',
+  templateUrl: 'app/app.component.html',
+  directives: [
+    ClickMeComponent, ClickMeComponent2,
+    LoopbackComponent,
+    KeyUpComponent_v1, KeyUpComponent_v2, KeyUpComponent_v3, KeyUpComponent_v4,
+    LittleTourComponent
+  ]
 })
-
-export class AppComponent {
-    public title = 'Tour of Heroes';
-    public selectedHero: Heroe;
-    public heroes = HEROES;
-    
-    onSelect(hero: Heroe) { 
-        if(hero===this.selectedHero){
-            this.selectedHero = null;    
-        }
-        else{
-            this.selectedHero = hero;
-        }
-         
-    }
-
-
-}
-
-var HEROES: Heroe[] = [
-    { 
-        "id": 11, 
-        "name": "Mr. Nice" 
-    },
-    { "id": 12, "name": "Narco" },
-    { "id": 13, "name": "Bombasto" },
-    { "id": 14, "name": "Celeritas" },
-    { "id": 15, "name": "Magneta" },
-    { "id": 16, "name": "RubberMan" },
-    { "id": 17, "name": "Dynama" },
-    { "id": 18, "name": "Dr IQ" },
-    { "id": 19, "name": "Magma" },
-    { "id": 20, "name": "Tornado" }
-];
