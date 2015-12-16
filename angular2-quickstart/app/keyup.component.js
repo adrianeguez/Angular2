@@ -20,20 +20,14 @@ System.register(['angular2/core'], function(exports_1) {
                 function KeyUpComponent_v1() {
                     this.values = '';
                 }
-                /*
                 // without strong typing
-                onKey(event:any) {
-                  this.values += event.target.value + ' | ';
-                }
-                */
-                // with strong typing
                 KeyUpComponent_v1.prototype.onKey = function (event) {
                     this.values += event.target.value + ' | ';
                 };
                 KeyUpComponent_v1 = __decorate([
                     core_1.Component({
                         selector: 'key-up1',
-                        template: "\n    <input (keyup)=\"onKey($event)\">\n    <p>{{values}}</p>\n  "
+                        template: "\n  <h3> Key up 1</h3>\n    <input (keyup)=\"onKey($event)\">\n    <p>{{values}}</p>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], KeyUpComponent_v1);
@@ -51,7 +45,7 @@ System.register(['angular2/core'], function(exports_1) {
                 KeyUpComponent_v2 = __decorate([
                     core_1.Component({
                         selector: 'key-up2',
-                        template: "\n    <input #box (keyup)=\"onKey(box.value)\">\n    <p>{{values}}</p>\n  "
+                        template: "\n  <h3> Key up 2</h3>\n    <input #box (keyup)=\"onKey(box.value)\">\n    <p>{{values}}</p>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], KeyUpComponent_v2);
@@ -66,7 +60,7 @@ System.register(['angular2/core'], function(exports_1) {
                 KeyUpComponent_v3 = __decorate([
                     core_1.Component({
                         selector: 'key-up3',
-                        template: "\n    <input #box (keyup.enter)=\"values=box.value\">\n    <p>{{values}}</p>\n  "
+                        template: "\n  <h3> Key up 3</h3>\n    <input #box (keyup.enter)=\"values=box.value\">\n    <p>{{values}}</p>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], KeyUpComponent_v3);
@@ -81,7 +75,7 @@ System.register(['angular2/core'], function(exports_1) {
                 KeyUpComponent_v4 = __decorate([
                     core_1.Component({
                         selector: 'key-up4',
-                        template: "\n    <input #box\n      (keyup.enter)=\"values=box.value\"\n      (blur)=\"values=box.value\">\n    <p>{{values}}</p>\n  "
+                        template: "\n  <h3> Key up 4</h3>\n    <input #box\n      (keyup.enter)=\"values=box.value\"\n      (blur)=\"values=box.value\">\n    <p>{{values}}</p>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], KeyUpComponent_v4);
