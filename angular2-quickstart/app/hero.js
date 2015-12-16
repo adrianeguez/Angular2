@@ -4,9 +4,10 @@ System.register([], function(exports_1) {
         setters:[],
         execute: function() {
             Hero = (function () {
-                function Hero(id, name) {
+                function Hero(id, name, sayHello) {
                     this.id = id;
                     this.name = name;
+                    this.sayHello = sayHello;
                 }
                 return Hero;
             })();

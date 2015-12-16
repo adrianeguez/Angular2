@@ -18,11 +18,12 @@ System.register(['angular2/core'], function(exports_1) {
         execute: function() {
             LoopbackComponent = (function () {
                 function LoopbackComponent() {
+                    this.valor = 'sexoIntenso';
                 }
                 LoopbackComponent = __decorate([
                     core_1.Component({
                         selector: 'loop-back',
-                        template: "\n    <input #box (keyup)=\"0\">\n    <p>{{box.value}}</p>\n  "
+                        template: "\n  <h1>Loopback</h1>\n    <input #box (keyup)=\"valor=box.value\">\n    <p>{{box.value}} {{valor}}</p>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], LoopbackComponent);

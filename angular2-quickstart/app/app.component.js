@@ -34,14 +34,31 @@ System.register(['angular2/core', './hero', './click-me.component', './loop-back
             AppComponent = (function () {
                 function AppComponent() {
                     this.heroes = [
-                        new hero_1.Hero(1, 'Windstorm'),
-                        new hero_1.Hero(13, 'Bombasto'),
-                        new hero_1.Hero(15, 'Magneta'),
-                        new hero_1.Hero(20, 'Tornado')
+                        new hero_1.Hero(1, 'Windstorm', ''),
+                        new hero_1.Hero(13, 'Bombasto', ''),
+                        new hero_1.Hero(15, 'Magneta', ''),
+                        new hero_1.Hero(20, 'Tornado', '')
                     ];
                     this.myHero = this.heroes[0];
                     this.title = 'Tour of Heroes';
+                    this.nuevoHeroe = { id: null, name: '', sayHello: '' };
                 }
+                AppComponent.prototype.agregarHeroe = function () {
+                    if (this.nuevoHeroe != { id: null, name: '', sayHello: '' }) {
+                        this.heroes.push(new hero_1.Hero(this.nuevoHeroe.id, this.nuevoHeroe.name, this.nuevoHeroe.sayHello));
+                        this.nuevoHeroe = { id: null, name: '', sayHello: '' };
+                    }
+                };
+                AppComponent.prototype.encerar = function () {
+                    this.nuevoHeroe.id = null;
+                    this.nuevoHeroe.name = "";
+                    this.nuevoHeroe.sayHello = "";
+                };
+                AppComponent.prototype.sayHello = function (heroeQueSaluda) {
+                    heroeQueSaluda.sayHello = 'Hola' + heroeQueSaluda.name + " - " + heroeQueSaluda.id;
+                    this.myHero = heroeQueSaluda;
+                    //{id:heroe.id,name:heroe.name,sayHello:heroe.sayHello};
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',

@@ -2,8 +2,14 @@ import {Component} from 'angular2/core';
 @Component({
   selector: 'loop-back',
   template:`
-    <input #box (keyup)="0">
-    <p>{{box.value}}</p>
+  <h1>Loopback</h1>
+    <input #box (keyup)="valor=box.value">
+    <p>{{box.value}} {{valor}}</p>
   `
 })
-export class LoopbackComponent { }
+export class LoopbackComponent {
+  valor: string;
+  constructor(){
+    this.valor = 'sexoIntenso'
+  }
+ }

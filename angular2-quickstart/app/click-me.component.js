@@ -20,13 +20,18 @@ System.register(['angular2/core'], function(exports_1) {
                 function ClickMeComponent() {
                     this.clickMessage = '';
                 }
-                ClickMeComponent.prototype.onClickMe = function () {
-                    this.clickMessage = 'You are my hero!';
+                ClickMeComponent.prototype.onClickMe = function (Heroe) {
+                    if (Heroe) {
+                        this.clickMessage = 'You are my hero!' + Heroe.id + ' ' + Heroe.name;
+                    }
+                    else {
+                        this.clickMessage = 'You are my hero!';
+                    }
                 };
                 ClickMeComponent = __decorate([
                     core_1.Component({
                         selector: 'click-me',
-                        template: "\n    <button (click)=\"onClickMe()\">Click me!</button>\n    {{clickMessage}}"
+                        template: "\n    <button (click)=\"onClickMe(hero)\">Click me!</button>\n    {{clickMessage}}"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], ClickMeComponent);
